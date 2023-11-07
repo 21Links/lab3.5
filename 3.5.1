@@ -91,3 +91,62 @@ using System;
         set { matrix[index1, index2] = value; }
     }
 }
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.WriteLine("Введите количество строк матрицы:");
+        int rows = Convert.ToInt32(Console.ReadLine());
+
+        Console.WriteLine("Введите количество столбцов матрицы:");
+        int columns = Convert.ToInt32(Console.ReadLine());
+
+        Console.WriteLine("Введите минимальное значение для заполнения матрицы:");
+        int minValue = Convert.ToInt32(Console.ReadLine());
+
+        Console.WriteLine("Введите максимальное значение для заполнения матрицы:");
+        int maxValue = Convert.ToInt32(Console.ReadLine());
+
+        MyMatrix matrix = new MyMatrix(rows, columns, minValue, maxValue);
+
+        Console.WriteLine("Исходная матрица:");
+        matrix.Show();
+
+        Console.WriteLine("Введите новое количество строк для изменения размера матрицы:");
+        int newRows = Convert.ToInt32(Console.ReadLine());
+
+        Console.WriteLine("Введите новое количество столбцов для изменения размера матрицы:");
+        int newColumns = Convert.ToInt32(Console.ReadLine());
+
+        matrix.ChangeSize(newRows, newColumns);
+
+        Console.WriteLine("Измененная матрица:");
+        matrix.Show();
+
+        Console.WriteLine("Введите начальное значение строки для вывода подматрицы:");
+        int startRow = Convert.ToInt32(Console.ReadLine());
+
+        Console.WriteLine("Введите начальное значение столбца для вывода подматрицы:");
+        int startColumn = Convert.ToInt32(Console.ReadLine());
+
+        Console.WriteLine("Введите конечное значение строки для вывода подматрицы:");
+        int endRow = Convert.ToInt32(Console.ReadLine());
+
+        Console.WriteLine("Введите конечное значение столбца для вывода подматрицы:");
+        int endColumn = Convert.ToInt32(Console.ReadLine());
+
+        Console.WriteLine("Подматрица:");
+        matrix.ShowPartialy(startRow, startColumn, endRow, endColumn);
+
+        Console.WriteLine("Введите значения индексов элемента матрицы, который хотите изменить:");
+        int index1 = Convert.ToInt32(Console.ReadLine());
+        int index2 = Convert.ToInt32(Console.ReadLine());
+
+        Console.WriteLine("Введите новое значение для элемента:");
+        int newValue = Convert.ToInt32(Console.ReadLine());
+
+        matrix[index1, index2] = newValue;
+
+        Console.WriteLine("Измененная матрица:");
+        matrix.Show();
+    }
